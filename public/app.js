@@ -1,17 +1,11 @@
-let role = 4; // Default = athlete
+let role = 4; // Default role is Athlete
 
 const roleViews = {
-  1: ["steps", "activeMinutes", "energyScore", "sleep"],
-  2: ["heartRate", "calories", "bodyComposition", "stress"],
-  3: ["ecg", "bloodPressure", "spo2", "sleepApnea", "fallDetection"],
+  1: ["steps", "activeMinutes", "energyScore", "sleep"],  // Coach's view
+  2: ["heartRate", "calories", "bodyComposition", "stress"],  // Trainer's view
+  3: ["ecg", "bloodPressure", "spo2", "sleepApnea", "fallDetection"],  // Team Doctor's view
   4: [
-    "steps",
-    "calories",
-    "activeMinutes",
-    "heartRate",
-    "stress",
-    "sleep",
-    "energyScore"
+    "steps", "calories", "activeMinutes", "heartRate", "stress", "sleep", "energyScore"  // Athlete's view
   ]
 };
 
@@ -22,7 +16,7 @@ function setRole(r) {
 }
 
 function highlightButton(selectedRole) {
-  const buttons = document.querySelectorAll("button");
+  const buttons = document.querySelectorAll(".role-selector button");
   buttons.forEach((button, index) => {
     if (index + 1 === selectedRole) {
       button.style.transform = "scale(1.1)";
@@ -39,7 +33,7 @@ async function loadData() {
   const data = await res.json();
 
   const dashboard = document.getElementById("dashboard");
-  dashboard.innerHTML = "";
+  dashboard.innerHTML = "";  // Clear current dashboard content
 
   roleViews[role].forEach(metric => {
     const card = document.createElement("div");
@@ -98,12 +92,12 @@ function renderGraphCard(card, metric, value) {
     case "steps":
     case "calories":
     case "activeMinutes":
-      chartData = [value, value * 1.2, value * 0.9]; // Simulated trend data for example
+      chartData = [value, value * 1.2, value * 0.9];  // Simulated data
       labels = ["Today", "Yesterday", "Last Week"];
       break;
 
     case "heartRate":
-      chartData = [value, value + 5, value - 3]; // Simulated trend data
+      chartData = [value, value + 5, value - 3];  // Simulated trend data
       labels = ["Morning", "Afternoon", "Evening"];
       break;
 
@@ -125,7 +119,7 @@ function renderGraphCard(card, metric, value) {
 
   const ctx = document.getElementById(`${metric}Chart`).getContext("2d");
   new Chart(ctx, {
-    type: "line", // You can change it to 'bar', 'pie', etc.
+    type: "line",  // Can also be "bar", "pie", etc.
     data: {
       labels: labels,
       datasets: [{
@@ -154,4 +148,5 @@ function formatTitle(text) {
     .replace(/^./, str => str.toUpperCase());
 }
 
+// Load data initially
 loadData();
