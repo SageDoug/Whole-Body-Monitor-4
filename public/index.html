@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whole Body Performance Monitor</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>Whole Body Performance Monitor</header>
+
+<div class="role-selector">
+  <button onclick="setRole(1)">Coach</button>
+  <button onclick="setRole(2)">Trainer</button>
+  <button onclick="setRole(3)">Team Doctor</button>
+  <button onclick="setRole(4)">Athlete</button>
+</div>
+
+<div id="dashboard" class="dashboard"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
