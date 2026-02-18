@@ -1,4 +1,4 @@
-let role = 4; // default = athlete
+let role = 4; // Default = athlete
 
 const roleViews = {
   1: ["steps", "activeMinutes", "energyScore", "sleep"],
@@ -18,6 +18,20 @@ const roleViews = {
 function setRole(r) {
   role = r;
   loadData();
+  highlightButton(r);
+}
+
+function highlightButton(selectedRole) {
+  const buttons = document.querySelectorAll("button");
+  buttons.forEach((button, index) => {
+    if (index + 1 === selectedRole) {
+      button.style.transform = "scale(1.1)";
+      button.style.boxShadow = "0 0 15px rgba(56, 189, 248, 0.5)";
+    } else {
+      button.style.transform = "scale(1)";
+      button.style.boxShadow = "none";
+    }
+  });
 }
 
 async function loadData() {
