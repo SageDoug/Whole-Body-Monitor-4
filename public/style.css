@@ -15,22 +15,26 @@ header {
 
 .role-selector {
   text-align: center;
-  margin: 15px;
+  margin: 30px 0;
 }
 
 button {
-  margin: 5px;
-  padding: 10px 18px;
+  margin: 10px;
+  padding: 30px 60px;  /* Increased size */
+  font-size: 18px;  /* Increased font size */
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   background: #2563eb;
   color: white;
   font-weight: bold;
+  transition: all 0.3s ease;
 }
 
 button:hover {
   background: #1d4ed8;
+  transform: scale(1.1);  /* Slight animation to make button grow */
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);  /* Adding a shadow effect */
 }
 
 .dashboard {
