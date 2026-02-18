@@ -1,0 +1,12 @@
+{
+  "name": "whole-body-monitor",
+  "version": "1.0.0",
+  "description": "Role-based whole body monitoring dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
